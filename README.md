@@ -90,7 +90,7 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 | 70 | Accounting & HR (branch) | 172.16.31.0/27 | Philippines |
 | 80 | Training Center (branch) | 172.16.31.32/27 | Philippines |
 | 90 | Executive Office (branch) | 172.16.31.64/28 | Philippines |
-| 99 | Management | 192.168.99.0/27 to /128 (per segment) | Both |
+| 99 | Management | 192.168.99.0/27 and /25 (per segment) | Both |
 
 ---
 
