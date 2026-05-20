@@ -1,0 +1,235 @@
+MULTILAYER SWITCH 3
+
+MLS3#sh run
+Building configuration...
+
+Current configuration : 3611 bytes
+!
+version 16.3.2
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname MLS3
+!
+!
+!
+!
+clock timezone EDT -4
+!
+!
+!
+!
+no ip cef
+ip routing
+!
+no ipv6 cef
+!
+!
+!
+username admin secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ftp username admin
+ip ftp password ccna143
+ip ssh version 2
+ip domain-name ciscoprojectdesign.com
+ip name-server 192.168.30.2
+!
+!
+spanning-tree mode rapid-pvst
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 30.30.30.30 255.255.255.255
+!
+interface Port-channel2
+ switchport trunk native vlan 1010
+ switchport trunk allowed vlan 10,20,25,30,99
+ switchport mode trunk
+ switchport nonegotiate
+!
+interface Port-channel4
+ no switchport
+ ip address 10.255.1.10 255.255.255.252
+!
+interface GigabitEthernet1/0/1
+ switchport trunk native vlan 1010
+ switchport trunk allowed vlan 10,20,25,30,99
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/2
+ switchport trunk native vlan 1010
+ switchport trunk allowed vlan 10,20,25,30,99
+ switchport mode trunk
+ switchport nonegotiate
+ channel-group 2 mode active
+!
+interface GigabitEthernet1/0/3
+ no switchport
+ no ip address
+ channel-group 4 mode active
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet1/0/4
+ no switchport
+ no ip address
+ channel-group 4 mode active
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet1/0/5
+ shutdown
+!
+interface GigabitEthernet1/0/6
+ shutdown
+!
+interface GigabitEthernet1/0/7
+ shutdown
+!
+interface GigabitEthernet1/0/8
+ shutdown
+!
+interface GigabitEthernet1/0/9
+ shutdown
+!
+interface GigabitEthernet1/0/10
+ shutdown
+!
+interface GigabitEthernet1/0/11
+ shutdown
+!
+interface GigabitEthernet1/0/12
+ shutdown
+!
+interface GigabitEthernet1/0/13
+ shutdown
+!
+interface GigabitEthernet1/0/14
+ shutdown
+!
+interface GigabitEthernet1/0/15
+ shutdown
+!
+interface GigabitEthernet1/0/16
+ shutdown
+!
+interface GigabitEthernet1/0/17
+ shutdown
+!
+interface GigabitEthernet1/0/18
+ shutdown
+!
+interface GigabitEthernet1/0/19
+ shutdown
+!
+interface GigabitEthernet1/0/20
+ shutdown
+!
+interface GigabitEthernet1/0/21
+ shutdown
+!
+interface GigabitEthernet1/0/22
+ shutdown
+!
+interface GigabitEthernet1/0/23
+ shutdown
+!
+interface GigabitEthernet1/0/24
+ shutdown
+!
+interface GigabitEthernet1/1/1
+ shutdown
+!
+interface GigabitEthernet1/1/2
+ shutdown
+!
+interface GigabitEthernet1/1/3
+ shutdown
+!
+interface GigabitEthernet1/1/4
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan20
+ mac-address 00d0.97b6.c301
+ ip address 192.168.20.1 255.255.255.0
+ ip helper-address 1.1.1.1
+!
+interface Vlan25
+ mac-address 00d0.97b6.c302
+ ip address 192.168.25.1 255.255.255.0
+ ip helper-address 1.1.1.1
+!
+interface Vlan99
+ mac-address 00d0.97b6.c303
+ ip address 192.168.99.65 255.255.255.224
+ ip helper-address 1.1.1.1
+!
+router ospf 100
+ router-id 30.30.30.30
+ log-adjacency-changes
+ passive-interface Loopback0
+ passive-interface Vlan20
+ passive-interface Vlan25
+ network 10.255.1.8 0.0.0.3 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+ network 192.168.25.0 0.0.0.255 area 0
+ network 30.30.30.30 0.0.0.0 area 0
+ network 192.168.99.64 0.0.0.31 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list standard SSH_ACCESS
+ permit 192.168.20.0 0.0.0.255
+ permit 192.168.25.0 0.0.0.255
+ permit 192.168.99.0 0.0.0.31
+ permit 192.168.99.32 0.0.0.31
+ permit 192.168.99.64 0.0.0.31
+ permit 192.168.99.128 0.0.0.127
+ deny any
+!
+!
+!
+!
+!
+logging trap debugging
+logging 192.168.30.4
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ access-class SSH_ACCESS in
+ login local
+ transport input ssh
+!
+!
+!
+ntp server 1.1.1.1
+!
+end
+
+
+MLS3#

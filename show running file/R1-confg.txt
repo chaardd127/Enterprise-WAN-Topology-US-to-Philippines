@@ -1,0 +1,206 @@
+ROUTER 1
+
+R1#sh run
+Building configuration...
+
+Current configuration : 4531 bytes
+!
+version 15.1
+service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+ip dhcp excluded-address 192.168.10.0 192.168.10.10
+ip dhcp excluded-address 192.168.20.0 192.168.20.10
+ip dhcp excluded-address 192.168.25.0 192.168.25.10
+ip dhcp excluded-address 192.168.99.0 192.168.99.10
+ip dhcp excluded-address 192.168.99.32 192.168.99.44
+ip dhcp excluded-address 192.168.99.64 192.168.99.74
+!
+ip dhcp pool VLAN_10(GEN_OFFICE/OPS)
+ network 192.168.10.0 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+ip dhcp pool VLAN_20(TECH_SUPPORT/CS_DATA)
+ network 192.168.20.0 255.255.255.0
+ default-router 192.168.20.1
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+ip dhcp pool VLAN_25(TECH_SUPPORT/CS_VOICE)
+ network 192.168.25.0 255.255.255.0
+ default-router 192.168.25.1
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+ip dhcp pool VLAN_99(MANAGEMENT_1)
+ network 192.168.99.0 255.255.255.224
+ default-router 192.168.99.1
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+ip dhcp pool VLAN_99(MANAGEMENT_2)
+ network 192.168.99.32 255.255.255.224
+ default-router 192.168.99.33
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+ip dhcp pool VLAN_99(MANAGEMENT_3)
+ network 192.168.99.64 255.255.255.224
+ default-router 192.168.99.65
+ dns-server 192.168.30.2
+ domain-name ciscoprojectdesign.com
+clock timezone EDT -4
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username admin secret 5 $1$mERr$5.a6P4JqbNiMX01usIfka/
+!
+!
+license udi pid CISCO2911/K9 sn FTX152404EF-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ftp username admin
+ip ftp password ccna143
+ip ssh version 2
+ip domain-name ciscoprojectdesign.com
+ip name-server 192.168.30.2
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 1.1.1.1 255.255.255.255
+!
+interface Tunnel0
+ ip address 192.168.100.1 255.255.255.252
+ mtu 1476
+ tunnel source GigabitEthernet0/0/0
+ tunnel destination 203.0.113.6
+!
+!
+interface GigabitEthernet0/0
+ ip address 10.255.1.1 255.255.255.252
+ ip ospf 100 area 0
+ ip nat inside
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/2
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/0
+ ip address 203.0.113.1 255.255.255.252
+ ip nat outside
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 100
+ router-id 1.1.1.1
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/0/0
+ passive-interface Loopback0
+ default-information originate
+!
+router bgp 65001
+ bgp log-neighbor-changes
+ no synchronization
+ neighbor 203.0.113.2 remote-as 701
+ network 203.0.113.0 mask 255.255.255.252
+!
+ip nat inside source list 1 interface GigabitEthernet0/0/0 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 203.0.113.2 
+ip route 192.168.40.0 255.255.255.0 192.168.100.2 
+ip route 192.168.50.0 255.255.255.0 192.168.100.2 
+ip route 192.168.60.0 255.255.255.0 192.168.100.2 
+ip route 192.168.99.128 255.255.255.128 192.168.100.2 
+ip route 172.16.31.0 255.255.255.224 192.168.100.2 
+ip route 172.16.31.32 255.255.255.224 192.168.100.2 
+ip route 172.16.31.64 255.255.255.240 192.168.100.2 
+ip route 2.2.2.2 255.255.255.255 192.168.100.2 
+ip route 3.3.3.3 255.255.255.255 192.168.100.2 
+ip route 40.40.40.40 255.255.255.255 192.168.100.2 
+ip route 50.50.50.50 255.255.255.255 192.168.100.2 
+ip route 10.255.2.0 255.255.255.252 192.168.100.2 
+ip route 10.255.2.4 255.255.255.252 192.168.100.2 
+ip route 10.255.2.8 255.255.255.252 192.168.100.2 
+ip route 10.255.2.12 255.255.255.252 192.168.100.2 
+!
+ip flow-export version 9
+!
+!
+access-list 1 permit 192.168.10.0 0.0.0.255
+access-list 1 permit 192.168.20.0 0.0.0.255
+access-list 1 permit 192.168.25.0 0.0.0.255
+access-list 1 permit 192.168.30.0 0.0.0.15
+access-list 1 permit 192.168.99.0 0.0.0.31
+access-list 1 permit 192.168.99.32 0.0.0.31
+access-list 1 permit 192.168.99.64 0.0.0.31
+access-list 1 permit 10.255.1.0 0.0.0.3
+access-list 1 permit 10.255.1.4 0.0.0.3
+access-list 1 permit 10.255.1.8 0.0.0.3
+ip access-list standard SSH_ACCESS
+ permit 192.168.20.0 0.0.0.255
+ permit 192.168.25.0 0.0.0.255
+ permit 192.168.99.0 0.0.0.31
+ permit 192.168.99.32 0.0.0.31
+ permit 192.168.99.64 0.0.0.31
+ permit 192.168.99.128 0.0.0.127
+ deny any
+!
+!
+!
+!
+!
+logging trap debugging
+logging 192.168.30.4
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ access-class SSH_ACCESS in
+ login local
+ transport input ssh
+!
+!
+ntp server 1.1.1.1
+ntp master 1
+ntp update-calendar
+!
+end
+
+
+R1#
