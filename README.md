@@ -107,11 +107,12 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 ## Verification Screenshots
 
 ### Routing
-![BGP Summary R1](screenshots/bgp-summary-r1.png)
-![BGP Summary R2](screenshots/bgp-summary-r2.png)
-![OSPF Neighbors R1](screenshots/ospf-neighbors-r1.png)
-![GRE Tunnel Status](screenshots/gre-tunnel-up.png)
-![NAT Translations R1](screenshots/nat-translations-r1.png)
+![IP Route R1](screenshot/Routing%20and%20Connectivity/show%20ip%20route%20R1.PNG)
+![IP Route R2](screenshot/Routing%20and%20Connectivity/show%20ip%20route%20R2.PNG)
+![OSPF Neighbors](screenshot/Redundancy%20and%20Services/show%20ip%20ospf%20neighbor.png)
+![GRE Tunnel Status](screenshot/Routing%20and%20Connectivity/show%20int%20tunnel0%20R1.png)
+![BGP Summary R1](screenshot/Routing%20and%20Connectivity/show%20ip%20bgp%20summary%20R1.png)
+![BGP Summary R2](screenshot/Routing%20and%20Connectivity/show%20ip%20bgp%20summary%20R2.png)
 
 ### Switching
 ![EtherChannel Summary MLS1](screenshots/etherchannel-summary-mls1.png)
