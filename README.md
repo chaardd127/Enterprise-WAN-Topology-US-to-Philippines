@@ -115,21 +115,19 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 ![BGP Summary R2](screenshot/Routing%20and%20Connectivity/show%20ip%20bgp%20summary%20R2.png)
 
 ### Switching
-![EtherChannel Summary MLS1](screenshots/etherchannel-summary-mls1.png)
-![VLAN Brief SW1](screenshots/vlan-brief-sw1.png)
-![Spanning Tree MLS4](screenshots/spanning-tree-mls4.png)
+![EtherChannel Summary MLS1](screenshot/Switching%20and%20Layer%202%20Security/show%20etherchannel%20summary%20MLS1.png)
+![VLAN Trunk and Brief SW2](screenshot/Switching%20and%20Layer%202%20Security/show%20int%20trunk%20and%20vlan%20brief%20SW2.png)
 
 ### Redundancy & Services
 ![HSRP Standby MLS4](screenshots/hsrp-standby-mls4.png)
 ![NTP Status R1](screenshots/ntp-status-r1.png)
-![DHCP Bindings R1](screenshots/dhcp-bindings-r1.png)
+![DHCP Bindings R1](screenshot/Redundancy%20and%20Services/show%20ip%20dhcp%20binding%20R1.png)
 
 ### Security
-![DHCP Snooping Bindings SW1](screenshots/dhcp-snooping-sw1.png)
-![Port Security SW1](screenshots/port-security-sw1.png)
+![DHCP Snooping Bindings and ARP inspection SW1](screenshot/Switching%20and%20Layer%202%20Security/show%20ip%20arp%20inspection%20and%20dhcp%20snooping%20SW1.png)
 
 ### End-to-End Connectivity
-![Ping US PC to PH Laptop](screenshots/ping-us-to-ph.png)
+![Ping US PC to PH PC/Laptop](screenshot/Routing%20and%20Connectivity/END-TO-END%20PING%20FROM%20U.S%20DEVICES%20TO%20PH%20DEVICES.PNG)
 
 ---
 
