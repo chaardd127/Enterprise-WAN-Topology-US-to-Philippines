@@ -122,6 +122,7 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 ![HSRP Standby MLS4](screenshot/Redundancy%20and%20Services/show%20standby%20brief%20MLS4.png)
 ![NTP Status R1](screenshot/Redundancy%20and%20Services/show%20ntp%20R1.png)
 ![DHCP Bindings R1](screenshot/Redundancy%20and%20Services/show%20ip%20dhcp%20binding%20R1.png)
+![DNS Server](screenshot/Redundancy%20and%20Services/DNS%20Server.png)
 
 ### Security
 ![DHCP Snooping Bindings and ARP inspection SW1](screenshot/Switching%20and%20Layer%202%20Security/show%20ip%20arp%20inspection%20and%20dhcp%20snooping%20SW1.png)
