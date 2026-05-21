@@ -119,6 +119,7 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 ![VLAN Trunk and Brief SW2](screenshot/Switching%20and%20Layer%202%20Security/show%20int%20trunk%20and%20vlan%20brief%20SW2.png)
 
 ### Redundancy & Services
+![IP NAT R1](screenshot/Redundancy%20and%20Services/show%20ip%20nat%20R1.png)
 ![HSRP Standby MLS4](screenshot/Redundancy%20and%20Services/show%20standby%20brief%20MLS4.png)
 ![NTP Status R1](screenshot/Redundancy%20and%20Services/show%20ntp%20R1.png)
 ![DHCP Bindings R1](screenshot/Redundancy%20and%20Services/show%20ip%20dhcp%20binding%20R1.png)
