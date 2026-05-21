@@ -142,6 +142,7 @@ Designed to explore and apply real-world BGP, WAN architecture, GRE tunneling, a
 ## Author
 
 **Richard Buenconsejo**
+
 BS Electronics & Communications Engineering | CCNA (CSCO14468070)
 
 [LinkedIn](https://www.linkedin.com/in/richard-buenconsejo-62ab3922a/)
